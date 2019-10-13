@@ -1,0 +1,33 @@
+<mat-card>
+        <mat-card-title>Have to:</mat-card-title>
+        <mat-card-content>
+            <div class='no-task' *ngIf='!tasks.list.length'>Set a new Task.</div>
+            <mat-list>
+                <app-item 
+                    (editTask)='openDialog("Edit your task:", "Edit", task.content, task.id)' 
+                    (deleteTask)='removeTask(task.id)'
+                    [data]='task' 
+                    *ngFor="let task of tasks.list">
+                </app-item>
+            </mat-list>
+        </mat-card-content>
+        <mat-card-actions align='end'>
+                <button (click)='openDialog("Add new task:", "Add")' color='accent' mat-raised-button>Add</button>
+        </mat-card-actions>
+</mat-card>
+
+<div class='modal-container' *ngIf="modifying">
+    <div class='modal'>
+        <h1 mat-dialog-title>{{modify.name}}</h1>
+        <div mat-dialog-content>
+            <mat-form-field>
+                <input color='accent' placeholder="Write your task here" matInput [(ngModel)]="modify.task">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-stroked-button (click)="closeDialog()">Cancel</button>
+            <button color='accent' mat-raised-button (click)="action(modify.action, modify.id)">{{modify.action}}</button>
+        </div>
+    </div>
+</div>
+<button class='log-out' color='warn' mat-raised-button (click)="httpRequest.logOut()">Log Out</button>

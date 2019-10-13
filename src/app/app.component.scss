@@ -1,0 +1,22 @@
+.mat-button-toggle{
+    background-color:rgb(165, 165, 165);
+}
+.active{
+    background-color: rgb(0, 187, 100);
+}
+
+.mat-display-2{
+    margin:0px !important;
+}
+
+.loading{
+    position:fixed;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    background-color:white;
+    text-align: center;
+    padding-top:20%;
+    font-size:210%;
+}

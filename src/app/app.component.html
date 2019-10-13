@@ -1,0 +1,26 @@
+<mat-grid-list cols='1' rowHeight='70'>
+  <mat-grid-tile>
+    <div class='mat-display-2'>To do list :</div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-button-toggle-group *ngIf='httpRequest.online' name="fontStyle" #nav="matButtonToggleGroup" >
+      <mat-button-toggle  routerLink="dashboard" routerLinkActive="active"
+        value="dashboard">
+          Dashboard
+      </mat-button-toggle>
+      <mat-button-toggle routerLink="admin" (click)='checking()' routerLinkActive="active"
+        value="admin">
+          Admin
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-grid-tile>
+  
+</mat-grid-list>
+
+<router-outlet></router-outlet>
+
+<div class='loading' *ngIf='!checked'>Checking access...</div>
+
+
+
+

@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-title>Have to do tasks: {{tasks.list.length}} </mat-card-title>
+    <mat-card-content>
+        <div class='no-tasks' *ngIf='!tasks.list.length'>You have no tasks to do.</div>
+        <div class='task' *ngFor="let task of tasks.list">
+            <span>{{task.id}}.</span> {{task.content}}
+        </div>
+    </mat-card-content>
+</mat-card>
+<button class='log-out' color='warn' mat-raised-button (click)="httpRequest.logOut()">Log Out</button>

@@ -1,0 +1,21 @@
+<div class="form">
+    <div>Login:</div>
+    <mat-form-field>
+        <input #myExistingLogin matInput placeholder="Your login">
+    </mat-form-field>
+    <button (click)='login(myExistingLogin.value, false)' mat-stroked-button color='accent'>Login</button>
+</div>
+
+<div class="form">
+        <div>New user:</div>
+        <mat-form-field>
+            <input #myLogin matInput placeholder="Create login">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select #myRole placeholder="Select a role">
+              <mat-option value="user">User</mat-option>
+              <mat-option value="admin">Admin</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button (click)='login(myLogin.value, true, myRole.value)' mat-stroked-button color='accent'>Login</button>
+</div>
